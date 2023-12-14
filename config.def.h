@@ -60,14 +60,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "wezterm", NULL };
 static const char *wofi[] = { "wofi","--show", "drun", NULL };
 static const char *dolphin[] = { "dolphin", NULL};
+static const char *browser[] = { "firefox", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+    { MODKEY,                       XK_b,      spawn,          {.v = browser} },
     { MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
     { Mod1Mask,                     XK_space,  spawn,          {.v = wofi } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
