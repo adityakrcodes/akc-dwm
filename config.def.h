@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Including extra header files */
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -62,8 +65,17 @@ static const char *wofi[] = { "wofi","--show", "drun", NULL };
 static const char *dolphin[] = { "dolphin", NULL};
 static const char *browser[] = { "firefox", NULL};
 
+/* Volume Controls */
+static const char *inc_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%", NULL};
+static const char *dec_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%", NULL};
+static const char *mute_vol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+    /*Volume keys binds*/
+    {0,                             XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
+    {0,                             XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
+    {0,                             XF86XK_AudioMute, spawn,   {.v = mute_vol} },
     { MODKEY,                       XK_b,      spawn,          {.v = browser} },
     { MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
     { Mod1Mask,                     XK_space,  spawn,          {.v = wofi } },
