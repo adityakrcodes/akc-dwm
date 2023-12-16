@@ -74,18 +74,32 @@ static const char *mute_vol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "t
 static const char *inc_br[] = { "backlight_control", "+1", NULL };
 static const char *dec_br[] = { "backlight_control", "-1", NULL };
 
+/* Playback Controls */
+static const char *play_pause[] = { "playerctl", "play-pause", NULL };
+static const char *prev[] = { "playerctl", "previous", NULL };
+static const char *next[] = { "playerctl", "next", NULL };
+static const char *stop[] = { "playerctl", "stop", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
     
-    /* Volume Controlkeys binds */
+    /* Volume Controlkeys keybinds */
     { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
     { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
     { 0,                            XF86XK_AudioMute, spawn,   {.v = mute_vol} },
     
-    /* Brightness Control keybinds*/
+    /* Brightness Control keybinds */
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = inc_br} },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dec_br} },
     
+    /* Playback Control keybinds */
+    { MODKEY,                       XF86XK_AudioRaiseVolume, spawn, {.v = next} },
+    { MODKEY,                       XF86XK_AudioLowerVolume, spawn, {.v = prev} },
+    { 0,                            XF86XK_AudioNext, spawn,   {.v = next} },
+    { 0,                            XF86XK_AudioPrev, spawn,   {.v = prev} },
+    { 0,                            XF86XK_AudioStop, spawn,   {.v = stop} },
+    { 0,                            XF86XK_AudioPlay, spawn,   {.v = play_pause} },
+
     { MODKEY,                       XK_b,      spawn,          {.v = browser} },
     { MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
     { Mod1Mask,                     XK_space,  spawn,          {.v = wofi } },
