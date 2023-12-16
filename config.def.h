@@ -70,12 +70,22 @@ static const char *inc_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "
 static const char *dec_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%", NULL};
 static const char *mute_vol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 
+/* Brigtness Controls */
+static const char *inc_br[] = { "backlight_control", "+1", NULL };
+static const char *dec_br[] = { "backlight_control", "-1", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-    /*Volume keys binds*/
-    {0,                             XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
-    {0,                             XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
-    {0,                             XF86XK_AudioMute, spawn,   {.v = mute_vol} },
+    
+    /* Volume Controlkeys binds */
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
+    { 0,                            XF86XK_AudioMute, spawn,   {.v = mute_vol} },
+    
+    /* Brightness Control keybinds*/
+    { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = inc_br} },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dec_br} },
+    
     { MODKEY,                       XK_b,      spawn,          {.v = browser} },
     { MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
     { Mod1Mask,                     XK_space,  spawn,          {.v = wofi } },
