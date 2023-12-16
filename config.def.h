@@ -66,9 +66,9 @@ static const char *dolphin[] = { "dolphin", NULL};
 static const char *browser[] = { "firefox", NULL};
 
 /* Volume Controls */
-static const char *inc_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+1%", NULL};
-static const char *dec_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-1%", NULL};
-static const char *mute_vol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
+static const char *inc_vol[] = { "pulsemixer", "--change-volume", "+1", "--max-volume", "100", NULL };
+static const char *dec_vol[] = { "pulsemixer", "--change-volume", "-1", NULL };
+static const char *mute_vol[] = { "pulsemixer", "--toggle-mute", NULL };
 
 /* Brigtness Controls */
 static const char *inc_br[] = { "backlight_control", "+1", NULL };
@@ -78,7 +78,7 @@ static const char *dec_br[] = { "backlight_control", "-1", NULL };
 static const char *play_pause[] = { "playerctl", "play-pause", NULL };
 static const char *prev[] = { "playerctl", "previous", NULL };
 static const char *next[] = { "playerctl", "next", NULL };
-static const char *stop[] = { "playerctl", "stop", NULL};
+static const char *stop[] = { "playerctl", "stop", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,8 +93,8 @@ static const Key keys[] = {
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dec_br} },
     
     /* Playback Control keybinds */
-    { MODKEY,                       XF86XK_AudioRaiseVolume, spawn, {.v = next} },
-    { MODKEY,                       XF86XK_AudioLowerVolume, spawn, {.v = prev} },
+    { MODKEY,                       XF86XK_AudioRaiseVolume, spawn, {.v = next} }, /*Laptop*/
+    { MODKEY,                       XF86XK_AudioLowerVolume, spawn, {.v = prev} }, /*Laptop*/
     { 0,                            XF86XK_AudioNext, spawn,   {.v = next} },
     { 0,                            XF86XK_AudioPrev, spawn,   {.v = prev} },
     { 0,                            XF86XK_AudioStop, spawn,   {.v = stop} },
