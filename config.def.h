@@ -80,9 +80,14 @@ static const char *prev[] = { "playerctl", "previous", NULL };
 static const char *next[] = { "playerctl", "next", NULL };
 static const char *stop[] = { "playerctl", "stop", NULL };
 
+/* Screenshot function */
+const char scr_shot[] = "var=~/pix/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10 $var; if [[ -f $var ]]; then cat $var | xclip -selection clipboard -t image/png; notify-send 'Screenshot captured' -t 3000 -i \"$var\"; fi;";
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
     
+    /* Screenshot key bind*/
+    { 0,                            XK_Print,  spawn,          SHCMD(scr_shot) },
     /* Volume Controlkeys keybinds */
     { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
     { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
