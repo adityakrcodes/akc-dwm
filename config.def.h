@@ -71,8 +71,8 @@ static const char *dec_vol[] = { "pulsemixer", "--change-volume", "-1", NULL };
 static const char *mute_vol[] = { "pulsemixer", "--toggle-mute", NULL };
 
 /* Brigtness Controls */
-static const char *inc_br[] = { "backlight_control", "+1", NULL };
-static const char *dec_br[] = { "backlight_control", "-1", NULL };
+static const char *inc_br[] = { "backlight_control", "+5", NULL };
+static const char *dec_br[] = { "backlight_control", "-5", NULL };
 
 /* Playback Controls */
 static const char *play_pause[] = { "playerctl", "play-pause", NULL };
