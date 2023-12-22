@@ -83,8 +83,14 @@ static const char *stop[] = { "playerctl", "stop", NULL };
 /* Screenshot function */
 const char scr_shot[] = "var=~/pix/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10 $var; if [[ -f $var ]]; then cat $var | xclip -selection clipboard -t image/png; notify-send 'Screenshot captured' -t 3000 -i \"$var\"; fi;";
 
+/* Emoji Selector Function*/
+static const char *emoji[] = { "rofi", "-modi", "emoji", "-show", "emoji", "-emoji-mode", "menu", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+
+    /*Emoji Selector bind*/
+    { MODKEY,                       XK_semicolon, spawn,       {.v = emoji} },
     
     /* Screenshot key bind*/
     { 0,                            XK_Print,  spawn,          SHCMD(scr_shot) },
