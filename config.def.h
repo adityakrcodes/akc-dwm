@@ -86,9 +86,12 @@ const char scr_shot[] = "var=~/pix/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10
 /* Emoji Selector Function*/
 static const char *emoji[] = { "rofi", "-modi", "emoji", "-show", "emoji", "-emoji-mode", "menu", NULL };
 
+/* Lock screen function*/
+static const char *lock[] = { "betterlockscreen", "-l", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-
+    { MODKEY,                       XK_l,      spawn,          {.v = lock} },
     /*Emoji Selector bind*/
     { MODKEY,                       XK_semicolon, spawn,       {.v = emoji} },
     
