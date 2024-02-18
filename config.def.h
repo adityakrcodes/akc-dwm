@@ -65,7 +65,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rofi[] = { "rofi","-show", "drun", NULL };
 static const char *dolphin[] = { "dolphin", NULL};
-static const char *browser[] = { "firefox", NULL};
+static const char *browser[] = { "brave", NULL};
 
 /* Volume Controls */
 static const char *inc_vol[] = { "pulsemixer", "--change-volume", "+1", "--max-volume", "100", NULL };
