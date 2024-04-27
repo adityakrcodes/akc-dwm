@@ -83,7 +83,7 @@ static const char *next[] = { "playerctl", "next", NULL };
 static const char *stop[] = { "playerctl", "stop", NULL };
 
 /* Screenshot function */
-const char scr_shot[] = "var=~/Pictures/ss/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10 $var; if [[ -f $var ]]; then cat $var | xclip -selection clipboard -t image/png; notify-send 'Screenshot captured' -t 3000 -i \"$var\"; fi;";
+const char scr_shot[] = "flameshot gui";
 
 /* Emoji Selector Function*/
 static const char *emoji[] = { "rofi", "-modi", "emoji", "-show", "emoji", "-emoji-mode", "menu", NULL };
