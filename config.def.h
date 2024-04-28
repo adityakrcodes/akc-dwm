@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rofi[] = { "rofi","-show", "drun", NULL };
-static const char *dolphin[] = { "dolphin", NULL};
+static const char *filemgr[] = { "nautilus", NULL};
 static const char *browser[] = { "brave", NULL};
 
 /* Volume Controls */
@@ -117,7 +117,7 @@ static const Key keys[] = {
     { 0,                            XF86XK_AudioPlay, spawn,   {.v = play_pause} },
 
     { MODKEY,                       XK_b,      spawn,          {.v = browser} },
-    { MODKEY,                       XK_e,      spawn,          {.v = dolphin} },
+    { MODKEY,                       XK_e,      spawn,          {.v = filemgr} },
     { Mod1Mask,                     XK_space,  spawn,          {.v = rofi } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_q,      spawn,          {.v = termcmd } },
