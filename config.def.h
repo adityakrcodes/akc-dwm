@@ -36,6 +36,7 @@ static const Rule rules[] = {
     { "kitty",    NULL,       NULL,       0,            1,           0,           -1 },
     { "Pavucontrol", NULL,    NULL,       0,            1,           1,           -1 },
     { "Blueman-manager",NULL, "blueman-manager",       0,            1,           1,           -1 },
+    { "discord", NULL,        NULL,       1 << 4,       0,           0,           0},
 };
 
 /* layout(s) */
