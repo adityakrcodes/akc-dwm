@@ -88,6 +88,7 @@ static const char *stop[] = { "playerctl", "stop", NULL };
 
 /* Screenshot function */
 const char scr_shot[] = "flameshot gui";
+const char ocr[] = "var=~/pix/$(date '+%d%m%y%H%M%S').png; maim -s -u -m 10 $var; if [[ -f $var ]]; then tesseract $var - | xclip -sel clip; notify-send 'Copied Text to Clipboard' -t 3000 -i \"$var\"; fi;";
 
 /* Emoji Selector Function*/
 static const char *emoji[] = { "rofi", "-modi", "emoji", "-show", "emoji", "-emoji-mode", "menu", NULL };
@@ -103,6 +104,7 @@ static const Key keys[] = {
     
     /* Screenshot key bind*/
     { 0,                            XK_Print,  spawn,          SHCMD(scr_shot) },
+    { ControlMask,                  XK_Print,  spawn,          SHCMD(ocr) },
     /* Volume Controlkeys keybinds */
     { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = dec_vol} },
     { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = inc_vol} },
